@@ -70,6 +70,16 @@ app.post('/api/notes', (req, res)=>{
   res.json(note);
 });
 
+app.put('/api/notes/:id', (req, res)=>{
+  const id = Number(req.params.id);
+  const note = notes.find(note => note.id === id);
+
+  note.important = !note.important;
+  notes = notes.concat(note);
+
+  res.json(note);
+})
+
 const unknownEndpoint = (req, res)=>{
   res.status(404).send({error: 'unknown endpoint'});
 }
