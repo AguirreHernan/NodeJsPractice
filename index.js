@@ -50,7 +50,6 @@ const generateId = ()=>{
     : 0;
   return maxId + 1;
 }
-
 app.post('/api/notes', (req, res)=>{
   const body = req.body;
 
