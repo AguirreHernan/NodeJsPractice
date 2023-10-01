@@ -73,10 +73,9 @@ app.post('/api/notes', (req, res)=>{
 app.put('/api/notes/:id', (req, res)=>{
   const id = Number(req.params.id);
   const note = notes.find(note => note.id === id);
+  const idx = notes.indexOf(note);
 
-  note.important = !note.important;
-  notes = notes.concat(note);
-
+  notes[idx].important = !notes[idx].important;
   res.json(note);
 })
 
